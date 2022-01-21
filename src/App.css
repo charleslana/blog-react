@@ -34,12 +34,9 @@ ul {
   gap: 4rem;
 }
 
-ul li a {
-  text-decoration: none;
-}
-
 a {
   color: #d9d9d9;
+  text-decoration: none;
 }
 
 a:hover {
@@ -80,6 +77,7 @@ section {
 .row {
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
 }
 
 .col-10 {
@@ -202,6 +200,11 @@ section {
     padding-right: 0rem !important;
     line-height: 2.5rem;
   }
+
+  form {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }
 }
 
 .sub-title {
@@ -259,4 +262,81 @@ footer p {
   background-color: #365bd4;
   border: none;
   cursor: pointer;
+}
+
+.cart {
+  background-color: #312e38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.category {
+  min-height: 70px;
+  min-width: 70px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 1rem;
+  text-transform: uppercase;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d9d9d9;
+  font-weight: bold;
+}
+
+.category-dev {
+  background-color: #3d9ce9;
+}
+
+.category-linux {
+  background-color: #ff942a;
+}
+
+.category-git {
+  background-color: #9966ff;
+}
+
+small {
+  font-size: 0.7rem;
+}
+
+.cart .col-20 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  background: none;
+  border: 1px solid #365bd4;
+  border-radius: 5px;
+  color: #365bd4;
+  display: flex;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+form {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+
+.tag {
+  border: 1px solid #365bd4;
+  padding: 0.2rem 0.5rem;
+  text-transform: capitalize;
+  display: inline-flex;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
 }

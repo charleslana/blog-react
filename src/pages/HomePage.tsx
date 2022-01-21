@@ -18,7 +18,7 @@ function HomePage() {
               <h2 className='sub-title'>
                 Encontre o que possa lhe ajudar, tudo sobre tecnologia,
                 utilização de sistemas, frameworks, desenvolvimento, testes e
-                sistemas operacionais. Práticas de DevOps, Git, Github e outros!
+                sistemas linux. Práticas de DevOps, Git, GitHub e outros!
               </h2>
               <Link to={'/posts'} className='sub-title'>
                 <button className='btn'>Ir para Postagens</button>

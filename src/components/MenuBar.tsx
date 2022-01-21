@@ -1,8 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 function MenuBar() {
-  const pathname = window.location.pathname;
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <header>
@@ -16,7 +20,10 @@ function MenuBar() {
           </Link>
         </li>
         <li>
-          <Link to={'/posts'} className={pathname === '/posts' ? 'active' : ''}>
+          <Link
+            to={'/posts'}
+            className={pathname.includes('/posts') ? 'active' : ''}
+          >
             Postagens
           </Link>
         </li>
