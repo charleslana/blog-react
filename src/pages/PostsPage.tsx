@@ -74,42 +74,34 @@ function PostsPage() {
               onChange={e => searchPosts(e)}
             />
           </form>
-          {filterPosts?.map(post => {
-            return (
-              <Link
-                to={`/posts/${post.id}`}
-                key={post.id}
-                className='sub-title'
-              >
-                <div className='cart'>
-                  <div className='row'>
-                    <div className='col-20'>
-                      <div className={`category category-${post.category}`}>
-                        {post.category}
-                      </div>
-                    </div>
-                    <div className='col-80'>
-                      <small>
-                        {post.date.toLocaleDateString('pt-BR', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                        })}
-                      </small>
-                      <h2 className='sub-title'>{post.title}</h2>
-                      {post.tags.map(tag => {
-                        return (
-                          <div key={tag} className='tag'>
-                            {tag}
-                          </div>
-                        );
-                      })}
+          {filterPosts?.map(post => (
+            <Link to={`/posts/${post.id}`} key={post.id} className='sub-title'>
+              <div className='cart'>
+                <div className='row'>
+                  <div className='col-20'>
+                    <div className={`category category-${post.category}`}>
+                      {post.category}
                     </div>
                   </div>
+                  <div className='col-80'>
+                    <small>
+                      {post.date.toLocaleDateString('pt-BR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </small>
+                    <h2 className='sub-title'>{post.title}</h2>
+                    {post.tags.map(tag => (
+                      <div key={tag} className='tag'>
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </Link>
-            );
-          })}
+              </div>
+            </Link>
+          ))}
         </section>
       </main>
       <Footer />
