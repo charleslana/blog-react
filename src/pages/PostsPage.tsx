@@ -1,18 +1,19 @@
 import Footer from '../components/Footer';
-import IBlog from '../models/IBlog';
+import IPost from '../models/IPost';
 import MenuBar from '../components/MenuBar';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function PostsPage() {
-  const [posts, setPosts] = useState<IBlog[]>();
+  const [posts, setPosts] = useState<IPost[]>();
+  const [filterPosts, setFilterPosts] = useState<IPost[]>();
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
   const fetchPosts = () => {
-    const list: IBlog[] = [
+    const list: IPost[] = [
       {
         id: 1,
         date: new Date(),
@@ -45,6 +46,19 @@ function PostsPage() {
       },
     ];
     setPosts(list);
+    setFilterPosts(list);
+  };
+
+  const searchPosts = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.trim();
+    if (value === '') {
+      setFilterPosts(posts);
+      return;
+    }
+    const filter = posts?.filter(post => {
+      return post.tags.some(p => p.includes(value.toLowerCase()));
+    });
+    setFilterPosts(filter);
   };
 
   return (
@@ -54,9 +68,13 @@ function PostsPage() {
         <section>
           <h1 className='title'>Postagens</h1>
           <form>
-            <input type={'text'} placeholder='Pesquisar' />
+            <input
+              type={'text'}
+              placeholder='Pesquisar'
+              onChange={e => searchPosts(e)}
+            />
           </form>
-          {posts?.map(post => {
+          {filterPosts?.map(post => {
             return (
               <Link
                 to={`/posts/${post.id}`}

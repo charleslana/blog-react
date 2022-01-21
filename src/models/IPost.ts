@@ -1,4 +1,4 @@
-export default interface IBlog {
+export default interface IPost {
   id: number;
   date: Date;
   category: string;
