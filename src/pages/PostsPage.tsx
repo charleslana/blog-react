@@ -76,7 +76,7 @@ function PostsPage() {
           </form>
           {filterPosts?.map(post => (
             <Link to={`/posts/${post.id}`} key={post.id} className='sub-title'>
-              <div className='cart'>
+              <div className='card'>
                 <div className='row'>
                   <div className='col-20'>
                     <div className={`category category-${post.category}`}>

@@ -264,7 +264,7 @@ footer p {
   cursor: pointer;
 }
 
-.cart {
+.card {
   background-color: #312e38;
   display: flex;
   align-items: center;
@@ -306,7 +306,7 @@ small {
   font-size: 0.7rem;
 }
 
-.cart .col-20 {
+.card .col-20 {
   display: flex;
   justify-content: center;
   align-items: center;
