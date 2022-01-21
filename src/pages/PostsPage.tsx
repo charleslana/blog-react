@@ -67,7 +67,7 @@ function PostsPage() {
       <main>
         <section>
           <h1 className='title'>Postagens</h1>
-          <form>
+          <form onSubmit={e => e.preventDefault()}>
             <input
               type={'text'}
               placeholder='Pesquisar'
