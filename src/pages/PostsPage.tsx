@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 function PostsPage() {
   const [posts, setPosts] = useState<IPost[]>();
   const [filterPosts, setFilterPosts] = useState<IPost[]>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
@@ -45,8 +46,10 @@ function PostsPage() {
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       },
     ];
+    list.sort((a, b) => b.id - a.id);
     setPosts(list);
     setFilterPosts(list);
+    setIsLoading(false);
   };
 
   const searchPosts = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,41 +70,55 @@ function PostsPage() {
       <main>
         <section>
           <h1 className='title'>Postagens</h1>
-          <form onSubmit={e => e.preventDefault()}>
-            <input
-              type={'text'}
-              placeholder='Pesquisar'
-              onChange={e => searchPosts(e)}
-            />
-          </form>
-          {filterPosts?.map(post => (
-            <Link to={`/posts/${post.id}`} key={post.id} className='sub-title'>
-              <div className='card'>
-                <div className='row'>
-                  <div className='col-20'>
-                    <div className={`category category-${post.category}`}>
-                      {post.category}
-                    </div>
-                  </div>
-                  <div className='col-80'>
-                    <small>
-                      {post.date.toLocaleDateString('pt-BR', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </small>
-                    <h2 className='sub-title'>{post.title}</h2>
-                    {post.tags.map(tag => (
-                      <div key={tag} className='tag'>
-                        {tag}
+          {isLoading ? (
+            <p className='text-center'>Aguarde, Carregando...</p>
+          ) : (
+            <>
+              <form onSubmit={e => e.preventDefault()}>
+                <input
+                  type={'text'}
+                  placeholder='Pesquisar'
+                  onChange={e => searchPosts(e)}
+                />
+              </form>
+              {filterPosts?.length === 0 ? (
+                <p className='text-center'>Nenhum resultado encontrado.</p>
+              ) : (
+                filterPosts?.map(post => (
+                  <Link
+                    to={`/posts/${post.id}`}
+                    key={post.id}
+                    className='sub-title'
+                  >
+                    <div className='card'>
+                      <div className='row'>
+                        <div className='col-20'>
+                          <div className={`category category-${post.category}`}>
+                            {post.category}
+                          </div>
+                        </div>
+                        <div className='col-80'>
+                          <small>
+                            {post.date.toLocaleDateString('pt-BR', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric',
+                            })}
+                          </small>
+                          <h2 className='sub-title'>{post.title}</h2>
+                          {post.tags.map(tag => (
+                            <div key={tag} className='tag'>
+                              {tag}
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+                    </div>
+                  </Link>
+                ))
+              )}
+            </>
+          )}
         </section>
       </main>
       <Footer />
