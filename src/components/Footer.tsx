@@ -1,5 +1,5 @@
-import React from 'react';
 import packageJson from '../../package.json';
+import React from 'react';
 
 function Footer() {
   return (
