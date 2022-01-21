@@ -56,7 +56,7 @@ function PostsPage() {
       return;
     }
     const filter = posts?.filter(post =>
-      post.tags.some(p => p.includes(value.toLowerCase()))
+      post.tags.some(p => p.toLowerCase().includes(value.toLowerCase()))
     );
     setFilterPosts(filter);
   };
