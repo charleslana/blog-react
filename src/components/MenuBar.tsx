@@ -12,17 +12,13 @@ function MenuBar() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
-
   return (
     <header>
       <div className='menu'>
         <Link to={'/'}>
           <div className='logo'></div>
         </Link>
-        <button onClick={() => toggleMenu()}>
+        <button onClick={() => setMenu(!menu)}>
           <i
             className={`fa-solid ${
               size.width < 800 && menu ? 'fa-bars' : 'fa-x'
