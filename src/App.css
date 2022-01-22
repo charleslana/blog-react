@@ -462,3 +462,7 @@ code {
   word-break: normal;
   word-spacing: normal;
 }
+
+article p {
+  word-wrap: break-word;
+}
