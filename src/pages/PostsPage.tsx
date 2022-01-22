@@ -1,5 +1,6 @@
 import Footer from '../components/Footer';
 import IPost from '../models/IPost';
+import listPostService from '../services/ListPostService';
 import MenuBar from '../components/MenuBar';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -13,43 +14,17 @@ function PostsPage() {
     fetchPosts();
   }, []);
 
-  const fetchPosts = () => {
-    const list: IPost[] = [
-      {
-        id: 1,
-        date: new Date(),
-        category: 'linux',
-        tags: ['linux', 'sistema operacional', 'kernel'],
-        title:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        description:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-      },
-      {
-        id: 2,
-        date: new Date(),
-        category: 'dev',
-        tags: ['vscode', 'ambiente de desenvolvimento', 'ide'],
-        title:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        description:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-      },
-      {
-        id: 3,
-        date: new Date(),
-        category: 'git',
-        tags: ['git', 'github'],
-        title:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        description:
-          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-      },
-    ];
-    list.sort((a, b) => b.id - a.id);
-    setPosts(list);
-    setFilterPosts(list);
-    setIsLoading(false);
+  const fetchPosts = async () => {
+    await listPostService()
+      .then(response => {
+        response.sort((a, b) => b.id - a.id);
+        setPosts(response);
+        setFilterPosts(response);
+      })
+      .catch(error => {
+        alert(error.message);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const searchPosts = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,7 +74,7 @@ function PostsPage() {
                         </div>
                         <div className='col-80'>
                           <small>
-                            {post.date.toLocaleDateString('pt-BR', {
+                            {new Date(post.date).toLocaleDateString('pt-BR', {
                               year: 'numeric',
                               month: 'long',
                               day: 'numeric',
