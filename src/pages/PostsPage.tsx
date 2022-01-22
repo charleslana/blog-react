@@ -3,6 +3,7 @@ import IPost from '../models/IPost';
 import listPostService from '../services/ListPostService';
 import MenuBar from '../components/MenuBar';
 import React, { useEffect, useState } from 'react';
+import ScrollButton from '../components/ScrollButton';
 import { Link } from 'react-router-dom';
 
 function PostsPage() {
@@ -96,6 +97,7 @@ function PostsPage() {
           )}
         </section>
       </main>
+      <ScrollButton />
       <Footer />
     </>
   );
