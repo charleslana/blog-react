@@ -419,3 +419,8 @@ form {
   font-size: 1.25rem;
   line-height: 2rem;
 }
+
+article h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
