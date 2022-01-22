@@ -47,7 +47,11 @@ function PostDetailsPage() {
                 })}
               </p>
               <h1>{post.title}</h1>
-              <article>{post.description}</article>
+              <article
+                dangerouslySetInnerHTML={{
+                  __html: post.description,
+                }}
+              ></article>
             </div>
           )}
         </section>
