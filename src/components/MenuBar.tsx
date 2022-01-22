@@ -1,19 +1,36 @@
-import React, { useEffect } from 'react';
+import ISize from '../models/ISize';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useWindowSize } from '../utils/utils';
 
 function MenuBar() {
   const { pathname } = useLocation();
+  const [menu, setMenu] = useState(true);
+  const size: ISize = useWindowSize();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const toggleMenu = () => {
+    setMenu(!menu);
+  };
+
   return (
     <header>
-      <Link to={'/'}>
-        <div className='logo'></div>
-      </Link>
-      <ul>
+      <div className='menu'>
+        <Link to={'/'}>
+          <div className='logo'></div>
+        </Link>
+        <button onClick={() => toggleMenu()}>
+          <i
+            className={`fa-solid ${
+              size.width < 800 && menu ? 'fa-bars' : 'fa-x'
+            }`}
+          ></i>
+        </button>
+      </div>
+      <ul className={size.width < 800 && menu ? 'd-none' : 'd-flex'}>
         <li>
           <Link to={'/'} className={pathname === '/' ? 'active' : ''}>
             Início
@@ -28,7 +45,9 @@ function MenuBar() {
           </Link>
         </li>
       </ul>
-      <div className='social'>
+      <div
+        className={`social ${size.width < 800 && menu ? 'd-none' : 'd-flex'}`}
+      >
         <ul>
           <li>
             <a
