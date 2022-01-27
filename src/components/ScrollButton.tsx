@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ScrollButton() {
   const [visible, setVisible] = useState(false);
@@ -26,7 +27,7 @@ function ScrollButton() {
       className={`to-top ${visible ? 'd-flex' : 'd-none'}`}
       onClick={scrollToTop}
     >
-      <i className='fa-solid fa-chevron-up'></i>
+      <FontAwesomeIcon icon={['fas', 'chevron-up']} size='sm' />
     </button>
   );
 }

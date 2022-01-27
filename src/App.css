@@ -1,3 +1,5 @@
+@import url(mobile.css);
+
 #root {
   display: flex;
 }
@@ -15,7 +17,7 @@ header {
 
 header .logo {
   width: 9rem;
-  height: 2rem;
+  height: 4rem;
   background-image: url(../public/assets/images/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -40,15 +42,11 @@ a {
 }
 
 a:hover {
-  color: #365bd4;
+  color: #ffdb77;
 }
 
 .social ul {
   margin-right: 4rem;
-}
-
-i {
-  font-size: 1.8rem;
 }
 
 main {
@@ -67,7 +65,7 @@ section {
 .title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #365bd4;
+  color: #ffdb77;
   line-height: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -129,122 +127,6 @@ section {
   background-position: center;
 }
 
-@media only screen and (max-width: 800px) {
-  .col-10 {
-    width: 100%;
-  }
-
-  .col-20 {
-    width: 100%;
-  }
-
-  .col-30 {
-    width: 100%;
-  }
-
-  .col-40 {
-    width: 100%;
-  }
-
-  .col-50 {
-    width: 100%;
-  }
-
-  .col-60 {
-    width: 100%;
-  }
-
-  .col-70 {
-    width: 100%;
-  }
-
-  .col-80 {
-    width: 100%;
-  }
-
-  .col-90 {
-    width: 100%;
-  }
-
-  .col-100 {
-    width: 100%;
-  }
-
-  footer {
-    padding: 1rem 1rem !important;
-  }
-
-  header {
-    flex-direction: column;
-    height: auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .logo {
-    margin-left: 0rem;
-  }
-
-  .social ul {
-    margin-right: 0rem;
-  }
-
-  .social i {
-    font-size: 1rem;
-  }
-
-  .title,
-  .sub-title,
-  .title-error {
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
-    line-height: 2.5rem;
-  }
-
-  form {
-    padding-left: 0rem !important;
-    padding-right: 0rem !important;
-  }
-
-  ul {
-    border: 1px solid #d9d9d9;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-
-  .menu {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .menu button {
-    display: block !important;
-    background-color: transparent;
-    border: none;
-    color: #d9d9d9;
-  }
-
-  .menu i {
-    font-size: 1.8rem;
-  }
-
-  main {
-    margin-top: 4.5rem;
-  }
-
-  .post {
-    padding: 0 !important;
-  }
-
-  .post h1 {
-    font-size: 1.8rem !important;
-    line-height: 2.5rem !important;
-  }
-}
-
 .sub-title {
   font-size: 1.4rem;
   line-height: 3rem;
@@ -269,7 +151,7 @@ footer p {
 }
 
 .active {
-  color: #365bd4;
+  color: #ffdb77;
 }
 
 .title-error {
@@ -296,8 +178,8 @@ footer p {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: white;
-  background-color: #365bd4;
+  color: #ffdb77;
+  background-color: #312e38;
   border: none;
   cursor: pointer;
 }
@@ -352,9 +234,9 @@ small {
 
 input {
   background: none;
-  border: 1px solid #365bd4;
+  border: 1px solid #ffdb77;
   border-radius: 5px;
-  color: #365bd4;
+  color: #ffdb77;
   display: flex;
   font-size: 1.6rem;
   padding: 0.5rem;
@@ -368,7 +250,7 @@ form {
 }
 
 .tag {
-  border: 1px solid #365bd4;
+  border: 1px solid #ffdb77;
   padding: 0.2rem 0.5rem;
   text-transform: capitalize;
   display: inline-flex;

@@ -1,5 +1,6 @@
 import ISize from '../models/ISize';
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useLocation } from 'react-router-dom';
 import { useWindowSize } from '../utils/utils';
 
@@ -19,11 +20,11 @@ function MenuBar() {
           <div className='logo'></div>
         </Link>
         <button onClick={() => setMenu(!menu)}>
-          <i
-            className={`fa-solid ${
-              size.width < 800 && menu ? 'fa-bars' : 'fa-x'
-            }`}
-          ></i>
+          {size.width < 800 && menu ? (
+            <FontAwesomeIcon icon={['fas', 'bars']} size='2x' />
+          ) : (
+            <FontAwesomeIcon icon={['fas', 'x']} size='2x' />
+          )}
         </button>
       </div>
       <ul className={size.width < 800 && menu ? 'd-none' : 'd-flex'}>
@@ -50,12 +51,12 @@ function MenuBar() {
               href='https://www.linkedin.com/in/charleslana/'
               target={'_blank'}
             >
-              <i className='fa-brands fa-linkedin-in'></i>
+              <FontAwesomeIcon icon={['fab', 'linkedin-in']} size='lg' />
             </a>
           </li>
           <li>
             <a href={'https://github.com/charleslana'} target={'_blank'}>
-              <i className='fa-brands fa-github'></i>
+              <FontAwesomeIcon icon={['fab', 'github']} size='lg' />
             </a>
           </li>
           <li>
@@ -65,7 +66,7 @@ function MenuBar() {
               }
               target={'_blank'}
             >
-              <i className='fa-brands fa-google-play'></i>
+              <FontAwesomeIcon icon={['fab', 'google-play']} size='lg' />
             </a>
           </li>
         </ul>

@@ -12,8 +12,8 @@ function HomePage() {
           <div className='row'>
             <div className='col-60'>
               <h1 className='title'>
-                Olá, seja Bem-vindo(a) ao CBlog, uma forma de buscar informações
-                da tecnologia.
+                Olá, seja Bem-vindo(a) ao Blog do Charles, uma forma de buscar
+                informações da tecnologia.
               </h1>
               <h2 className='sub-title'>
                 Encontre o que possa lhe ajudar, tudo sobre tecnologia,
