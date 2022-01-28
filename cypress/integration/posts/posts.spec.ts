@@ -33,7 +33,7 @@ describe('Posts page', () => {
       .should('be.hidden');
   });
 
-  it('Should be able to navigate to post', () => {
+  it('Should be able to navigate to post details', () => {
     postsPage.clickMenuPosts();
     cy.url().should('equal', postsPage.validatePagePosts());
     postsPage.validateLoading();
