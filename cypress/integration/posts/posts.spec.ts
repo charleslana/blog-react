@@ -22,6 +22,14 @@ describe('Posts page', () => {
       .should('contain.text', postsPage.textSearch);
   });
 
+  it('Should not be able to search a post', () => {
+    postsPage.clickMenuPosts();
+    cy.url().should('equal', postsPage.validatePagePosts());
+    postsPage.validateLoading();
+    cy.get(postsPage.inputSearch).type('@');
+    cy.get(postsPage.noResult).should('contain.text', postsPage.textNoResult);
+  });
+
   it('Should be able to scroll to the bottom of the page and click on the icon to go up the page', () => {
     postsPage.clickMenuPosts();
     cy.url().should('equal', postsPage.validatePagePosts());

@@ -3,7 +3,9 @@ export class PostsPage {
   category = '.category';
   footer = 'footer';
   inputSearch = 'input';
+  noResult = '.text-center';
   post = '[href="/posts/3"]';
+  textNoResult = 'Nenhum resultado encontrado.';
   textSearch = 'linux';
   url = '/posts';
 
